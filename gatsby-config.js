@@ -1,4 +1,8 @@
 const config = require('./config/SiteConfig');
+const path = require('path');
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
@@ -57,5 +61,14 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static`,
+        path: path.join(__dirname, `static`),
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };

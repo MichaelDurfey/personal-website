@@ -1,5 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
+const axios = require('axios');
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -21,8 +22,17 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const apiKey = process.env.API_KEY
+  const tracks = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=almostcrimes_&api_key=${apiKey}&format=json`);
+  const albums = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=almostcrimes_&period=1month&api_key=${apiKey}&format=json`);
+
+  createPage({
+    path: '/music',
+    component: require.resolve("./src/templates/music.js"),
+    context: { tracks: tracks.data,  albums: albums.data }
+  });
 
   return new Promise((resolve, reject) => {
     const postPage = path.resolve('src/templates/post.js');
@@ -88,7 +98,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
       })
     );
-  });
+  }).catch(err => console.log(err));
 };
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {

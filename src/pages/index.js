@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
+import Img from 'gatsby-image';
 import { media } from '../utils/media';
+import config from '../../config/siteConfig.js';
 
 const Content = styled.div`
   grid-column: 2;
@@ -37,18 +39,54 @@ const Hero = styled.div`
   }
 `;
 
+const Picture = styled.div`
+  grid-column: 2;
+  margin-bottom: 20px;
+  img {
+    @media ${media.tablet} {
+      padding: 3rem 2rem;
+    }
+    @media ${media.phone} {
+      padding: 2rem 1.5rem;
+    }
+  }
+  overflow: hidden;
+`;
+
+const ImageDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  align-items: center;
+`;
+
+const image = ({ fixed }) => (
+  <ImageDiv>
+    <h1 style={{ padding: `auto` }}>Hi.</h1>
+    <Img
+      fixed={fixed}
+      imgStyle={{
+        borderRadius: `50%`,
+        marginLeft: `auto`,
+        marginRight: `auto`,
+      }}
+    />
+  </ImageDiv>
+);
+
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges: postEdges },
+    avatar: { childImageSharp: fixed },
   },
 }) => (
   <Layout>
     <Wrapper>
       <Hero>
-        <h1>Hi.</h1>
+        <Picture>{image(fixed)}</Picture>
         <p>
-          I&apos;m John Doe, a Senior UX Developer with five years of industry experience, specializing in developing
-          React apps with the best UX users can get.
+          I'm Michael Durfey, a Full Stack Software Engineer specializing in developing React applications and Node
+          servers.
         </p>
         <Link to="/contact">
           <Button big>
@@ -102,6 +140,13 @@ export const IndexQuery = graphql`
           }
           excerpt(pruneLength: 200)
           timeToRead
+        }
+      }
+    }
+    avatar: file(relativePath: { eq: "SlackPhoto.png" }) {
+      childImageSharp {
+        fixed(width: 200, height: 200) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
