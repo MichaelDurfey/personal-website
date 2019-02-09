@@ -159,9 +159,6 @@ div.about-container {
     /* background-color: rgba(147, 147, 147, 1) */
 }
 
-nav {
-    /* background-color: rgba(211, 211, 211, .8) */
-}
 .headshot {
     border-radius: 10%;
     border-width: 1px;
@@ -303,7 +300,6 @@ form {
 #h2 {
     font-family: 'Nanum Gothic';
     color: rgba(0, 0, 0, 1);
-    text-shadow: 4px 4px 4px rgba(147, 147, 147, 1);
     font-size: 30px;
     font-weight: 700;
     text-align: center;
@@ -312,9 +308,8 @@ form {
 .topAlbumText {
     font-size: 24px;
     font-weight: 700;
-    color: #fff;
-    text-shadow: 2px 2px 3px #000;
     font-family: 'Nanum Gothic';
+    margin-top: 100px;
     text-align: center;
     font-variant: small-caps;
     display: flex;
@@ -355,24 +350,14 @@ form {
     padding: 10px
 }
 .trackText {
-    color: #fff;
+    color: #000;
     font-size: 18px;
     font-family: 'Nanum Gothic';
-    text-shadow: 2px 2px 3px #000;
     font-weight: 700
 }
-.nowListeningText {
-    color: #fff;
-    font-size: 18px;
-    font-family: 'Nanum Gothic';
-    text-shadow: 2px 2px 3px #000;
-    font-weight: 700;
-    margin-top: 5px
-}
 .nowListeningAlbum {
-    color: #fff;
+    color: #000;
     font-size: 19px;
-    text-shadow: 2px 2px 3px #000;
     font-family: 'Nanum Gothic';
 }
 #lastImg:hover {
@@ -388,7 +373,8 @@ form {
     color: #fff
 }
 #albumImages {
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 @media (min-width: 200px) and (max-width: 450px) {
     .images {
@@ -575,7 +561,8 @@ form {
     }
 }
 #currentAlbum {
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 .currentArtistName {
     padding-top: 10%;
@@ -645,7 +632,11 @@ form {
     position: relative;
     font-family: 'Nanum Gothic';
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
+    color: white;
+}
+img {
+    margin-bottom: 0;
 }
 .lastAlbumImage .lastAlbumImageFace {
     background-color: rgba(0, 0, 0, 0.8);
@@ -666,7 +657,8 @@ form {
     padding-right: 0!important;
     overflow: hidden;
     text-align: center;
-    width: 100%
+    height: 50%;
+    width: 50%
 }
 .lastAlbumImageFace {
     width: 100%
