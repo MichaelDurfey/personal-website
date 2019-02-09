@@ -46,7 +46,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
+    "build": "yarn install && gatsby build",
     "dev": "gatsby develop -o",
     "serve": "gatsby build && gatsby serve",
     "lint": "yarn run lint:md && yarn run lint:js:fix",
