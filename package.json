@@ -1,8 +1,8 @@
 {
   "name": "gatsby-starter-minimal-blog",
-  "description": "Gatsby Starter - Minimal Blog",
+  "description": "Blog",
   "version": "2.0.0",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "author": "Michael Durfey mdurfey@me.com",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.8.0",
