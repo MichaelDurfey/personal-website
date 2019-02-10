@@ -1,8 +1,8 @@
-const config = require('./config/SiteConfig');
 const path = require('path');
-require("dotenv").config({
+const config = require('./config/SiteConfig');
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 

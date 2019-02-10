@@ -4,9 +4,9 @@ import React from 'react';
 import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
 import styled from 'styled-components';
 import moment from 'moment';
-import { media } from '../utils/media';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
+import { media } from '../utils/media';
 import './musicStyles.css';
 
 const Hero = styled.div`
@@ -28,7 +28,7 @@ const Hero = styled.div`
 `;
 
 const getTracks = tracks => {
-  if (!tracks.recenttracks){
+  if (!tracks.recenttracks) {
     return;
   }
   const dataSet = tracks.recenttracks.track;
@@ -60,7 +60,7 @@ const getTracks = tracks => {
         </h1>
         <h3 className="notListeningText" style={{ color: `black`, fontSize: `14px`, marginTop: `-9px` }}>
           <span style={{ color: `black`, fontFamily: 'Oswald' }}>
-            Updated: <br/>
+            Updated: <br />
             <span
               style={{
                 color: `black`,
@@ -83,12 +83,10 @@ const getTracks = tracks => {
             fontletiant: `small-caps`,
           }}
         >
-          <span style={{ color: `black`, fontFamily: 'Oswald', fontSize: `14px` }}>
-            Last Track:
-          </span>
-          <br/>
-          {lastTrack} <br/>
-          by <br/>
+          <span style={{ color: `black`, fontFamily: 'Oswald', fontSize: `14px` }}>Last Track:</span>
+          <br />
+          {lastTrack} <br />
+          by <br />
           {lastArtist}
         </h1>
         <div className="lastAlbumImage text-center center-block" id="lastAlbumImage">
@@ -137,15 +135,12 @@ const getTracks = tracks => {
   if (dataSet[0]['@attr'].nowplaying === 'true') {
     return (
       <>
-        <h1
-          className="nowListeningText"
-          style={{ fontSize: `24px`, fontWeight: `bold`, color: `black`, }}
-        >
+        <h1 className="nowListeningText" style={{ fontSize: `24px`, fontWeight: `bold`, color: `black` }}>
           Now Listening
           <i className="fa fa-music text-primary" />
         </h1>
         <p className="trackText">{lastTrack}</p>
-        <p style={{ marginTop: `-5px`, marginBottom: `2px`, color: `black`, }}>by</p>
+        <p style={{ marginTop: `-5px`, marginBottom: `2px`, color: `black` }}>by</p>
         <h1 className="nowListeningText">{lastArtist}</h1>
         <div className="currentAlbumImage text-center" id="lastAlbumImage">
           <img className="currentAlbum" id="currentAlbum" src={lastImg} alt="Not available :(" />
@@ -175,7 +170,7 @@ const imageComponent = (artistName, albumName, rank, albumImages, url) => (
 );
 
 const getImages = data => {
-  if(!data.topalbums) {
+  if (!data.topalbums) {
     return;
   }
   const components = [];
@@ -205,7 +200,7 @@ export default class MusicPage extends React.Component {
     this.state = {
       loading: false,
       tracks: {},
-      albums: {}
+      albums: {},
     };
   }
 
@@ -213,17 +208,28 @@ export default class MusicPage extends React.Component {
     this.fetchMusicStats();
   }
 
+  loadStuff = () => (
+    <>
+      {getTracks(this.state.tracks)}
+      {getImages(this.state.albums)}
+    </>
+  );
+
   fetchMusicStats() {
-    const apiKey = process.env.API_KEY
+    const apiKey = process.env.API_KEY;
     const loadStuff = async () => {
       try {
-        this.setState({ loading: true })
-        const tracks = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=almostcrimes_&api_key=${apiKey}&format=json`);
-        const albums = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=almostcrimes_&period=1month&api_key=${apiKey}&format=json`);
-        this.setState({ 
-          tracks: tracks.data, 
+        this.setState({ loading: true });
+        const tracks = await axios.get(
+          `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=almostcrimes_&api_key=${apiKey}&format=json`
+        );
+        const albums = await axios.get(
+          `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=almostcrimes_&period=1month&api_key=${apiKey}&format=json`
+        );
+        this.setState({
+          tracks: tracks.data,
           albums: albums.data,
-          loading: false
+          loading: false,
         });
       } catch (err) {
         console.log(err);
@@ -232,17 +238,8 @@ export default class MusicPage extends React.Component {
     loadStuff();
   }
 
-  loadStuff = () => {
-      return (
-        <>
-          {getTracks(this.state.tracks)}
-          {getImages(this.state.albums)}
-        </>
-      )
-    }
-
   render() {
-    const loading = this.state.loading;
+    const { loading } = this.state;
     return (
       <Layout>
         <Wrapper>
