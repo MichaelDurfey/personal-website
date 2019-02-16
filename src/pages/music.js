@@ -217,7 +217,9 @@ export default class MusicPage extends React.Component {
 
   fetchMusicStats() {
     const apiKey = process.env.API_KEY;
-    const loadStuff = async () => {
+    console.log(process.env.NODE_ENV);
+    console.log(process.env.API_KEY);
+    (async () => {
       try {
         this.setState({ loading: true });
         const tracks = await axios.get(
@@ -234,8 +236,7 @@ export default class MusicPage extends React.Component {
       } catch (err) {
         console.log(err);
       }
-    };
-    loadStuff();
+    })();
   }
 
   render() {
