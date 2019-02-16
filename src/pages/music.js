@@ -216,9 +216,7 @@ export default class MusicPage extends React.Component {
   );
 
   fetchMusicStats() {
-    const apiKey = process.env.API_KEY;
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.API_KEY);
+    const apiKey = process.env.GATSBY_API_KEY;
     (async () => {
       try {
         this.setState({ loading: true });
