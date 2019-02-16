@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-minimal-blog",
+  "name": "gatsby-blog",
   "description": "Blog",
   "version": "2.0.0",
   "author": "Michael Durfey mdurfey@me.com",
@@ -40,8 +40,7 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-starter",
-    "lekoarts"
+    "gatsby-starter"
   ],
   "license": "MIT",
   "main": "n/a",
