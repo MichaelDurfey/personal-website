@@ -95,7 +95,7 @@ const IndexPage = ({
             Contact
           </Button>
         </Link>
-        <Link to="/music" style={{ marginLeft: '25%' }}>
+        <Link to="/music">
           <Button big>
             <svg
               xmlns="http://purl.org/dc/elements/1.1/"

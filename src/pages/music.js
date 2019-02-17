@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
+import { Layout, Wrapper } from 'components';
 import styled from 'styled-components';
 import moment from 'moment';
 import axios from 'axios';
@@ -137,7 +137,7 @@ const getTracks = tracks => {
       <>
         <h1 className="nowListeningText" style={{ fontSize: `24px`, fontWeight: `bold`, color: `black` }}>
           Now Listening
-          <i className="fa fa-music text-primary" />
+          <i className="text-primary" />
         </h1>
         <p className="trackText">{lastTrack}</p>
         <p style={{ marginTop: `-5px`, marginBottom: `2px`, color: `black` }}>by</p>
@@ -155,8 +155,8 @@ const getTracks = tracks => {
   return <div>hi</div>;
 };
 
-const imageComponent = (artistName, albumName, rank, albumImages, url) => (
-  <div className="image text-center" id="image">
+const imageComponent = (artistName, albumName, rank, albumImages, url, key) => (
+  <div className="image text-center" id="image" key={key}>
     <img className="albumImages img-responsive" id="albumImages" src={albumImages} alt="Album not found :(" />
     <div className="imageFace" role="button" onClick={() => window.open(url)}>
       <h2 className="artistName">{artistName}</h2>
@@ -179,9 +179,10 @@ const getImages = data => {
     const artistName = data.topalbums.album[i].artist.name;
     const albumName = data.topalbums.album[i].name;
     const { rank } = data.topalbums.album[i]['@attr'];
-    const albumImages = data.topalbums.album[i].image[3]['#text'];
-    if (albumImages) {
-      components.push(imageComponent(artistName, albumName, rank, albumImages, url));
+    const albumImage = data.topalbums.album[i].image[3]['#text'];
+    const key = `unique${i}`;
+    if (albumImage) {
+      components.push(imageComponent(artistName, albumName, rank, albumImage, url, key));
     }
   }
   return (
@@ -217,15 +218,12 @@ export default class MusicPage extends React.Component {
 
   fetchMusicStats() {
     const apiKey = process.env.GATSBY_API_KEY;
+
     (async () => {
       try {
         this.setState({ loading: true });
-        const tracks = await axios.get(
-          `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=almostcrimes_&api_key=${apiKey}&format=json`
-        );
-        const albums = await axios.get(
-          `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=almostcrimes_&period=1month&api_key=${apiKey}&format=json`
-        );
+        const tracks = await axios.get(`${process.env.GATSBY_API_TRACKS_URL}${process.env.GATSBY_API_KEY}&format=json`);
+        const albums = await axios.get(`${process.env.GATSBY_API_ALBUMS_URL}${process.env.GATSBY_API_KEY}&format=json`);
         this.setState({
           tracks: tracks.data,
           albums: albums.data,

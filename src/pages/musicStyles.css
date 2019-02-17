@@ -309,7 +309,6 @@ form {
     font-size: 24px;
     font-weight: 700;
     font-family: 'Nanum Gothic';
-    margin-top: 100px;
     text-align: center;
     font-variant: small-caps;
     display: flex;
@@ -382,8 +381,6 @@ form {
         display: flex;
         -ms-flex-flow: wrap;
         flex-flow: wrap;
-        -ms-flex-align: center;
-        align-items: center;
         justify-content: center
     }
     #lastAlbumImage {
@@ -458,7 +455,6 @@ form {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -ms-flex-item-align: auto;
-        align-items: center;
         -ms-flex-positive: 1
     }
     .imageContainer {
@@ -557,12 +553,12 @@ form {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
-        align-items: center
     }
 }
 #currentAlbum {
     width: 100%;
     height: 100%;
+    object-fit: fill;
 }
 .currentArtistName {
     padding-top: 10%;
@@ -597,6 +593,14 @@ form {
     transition: 1000ms;
     width: 100%;
     height: 100%;
+    border: solid 1px #1b1b1b;
+    object-fit: fill;
+	-wekbit-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+    border-radius: 7px;
     position: absolute;
     overflow: hidden;
     text-align: center;
@@ -609,16 +613,19 @@ form {
     transform: rotate(360deg) skew(300deg, 100deg);
     transition: 600ms
 }
+
 .currentAlbumImage {
     position: relative;
     padding-left: 0!important;
     padding-right: 0!important;
     overflow: hidden;
-    width: 50%
+    margin-bottom: 20px;
+
+	border-radius: 7px;
+    height: 50%;
+    width: 50%;
 }
-.currentAlbumImageFace {
-    width: 100%
-}
+
 .currentAlbumImage:hover h2 {
     opacity: 1;
     -ms-transform: scale(1);
@@ -658,7 +665,8 @@ img {
     overflow: hidden;
     text-align: center;
     height: 50%;
-    width: 50%
+    width: 50%;
+    margin-bottom:20px;
 }
 .lastAlbumImageFace {
     width: 100%
@@ -719,6 +727,17 @@ img {
     width: 100%;
     height: 100%;
     position: absolute;
+    border: solid 1px #1b1b1b;
+    object-fit: fill;
+	-wekbit-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+    border-radius: 7px;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
     overflow: hidden;
     padding-top: 8%;
     padding-right: 0!important;
@@ -728,7 +747,18 @@ img {
 }
 .image {
     text-align: center;
-    overflow: hidden
+    overflow: hidden;
+    border: solid 1px #1b1b1b;
+    object-fit: fill;
+	-wekbit-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	box-shadow: inset 0 0 1px rgba(255,255,255,.4), inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.3);
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+    border-radius: 7px;
+    /* position: absolute; */
+    overflow: hidden;
+    text-align: center;
 }
 .rank {
     color: #fff;
