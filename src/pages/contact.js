@@ -54,7 +54,7 @@ const Contact = () => (
         <h1>Contact</h1>
         <p>Super cool intro text to get people contacting me! It uses Netlify's form feature.</p>
         <form name="contact-form" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/success">
-          <p className="hidden">
+          <p style={{ display: 'none' }} className="hidden">
             <label htmlFor="bot-field">
               Don't fill this out if you're human:
               <input id="bot-field" name="bot-field" />
