@@ -131,12 +131,12 @@ const IndexPage = ({
             Music
           </Button>
         </Link>
-        <a href="https://www.linkedin.com/in/michael-durfey/" rel="noopener noreferrer" target="_blank">
-          <Button big>
+        <Button big>
+          <a href="https://www.linkedin.com/in/michael-durfey/" rel="noopener noreferrer" target="_blank">
             <img alt="Linkedin Logo" src={linkedin} style={{ width: '20px', height: '20px' }} />
-            LinkedIn
-          </Button>
-        </a>
+          </a>
+          LinkedIn
+        </Button>
       </Hero>
       <Content>
         <SectionTitle>Latest stories</SectionTitle>
