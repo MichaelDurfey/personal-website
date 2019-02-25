@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
 import Img from 'gatsby-image';
+import linkedin from '../../static/icons/linkedin.png';
 import { media } from '../utils/media';
 
 const Content = styled.div`
@@ -130,6 +131,12 @@ const IndexPage = ({
             Music
           </Button>
         </Link>
+        <a href="https://www.linkedin.com/in/michael-durfey/" rel="noopener noreferrer" target="_blank">
+          <Button big>
+            <img alt="Linkedin Logo" src={linkedin} style={{ width: '20px', height: '20px' }} />
+            LinkedIn
+          </Button>
+        </a>
       </Hero>
       <Content>
         <SectionTitle>Latest stories</SectionTitle>
@@ -155,6 +162,9 @@ IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array.isRequired,
+    }),
+    avatar: PropTypes.shape({
+      childImageSharp: PropTypes.shape({ fixed: PropTypes.object.isRequired }),
     }),
   }).isRequired,
 };

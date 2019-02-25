@@ -7,6 +7,7 @@ category: "Life"
 How cool! More cool stuff coming soon!
 
 ```js
+// check out this cool sample code bit.. 
 (function() {
 
 var cache = {};
