@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
@@ -218,19 +219,25 @@ export default class MusicPage extends React.Component {
 
   fetchMusicStats() {
     const apiKey = process.env.GATSBY_API_KEY;
+    const tracksUrl = process.env.GATSBY_API_TRACKS_URL;
+    const albumsUrl = process.env.GATSBY_API_ALBUMS_URL;
 
     (async () => {
       try {
         this.setState({ loading: true });
-        const tracks = await axios.get(`${process.env.GATSBY_API_TRACKS_URL}${process.env.GATSBY_API_KEY}&format=json`);
-        const albums = await axios.get(`${process.env.GATSBY_API_ALBUMS_URL}${process.env.GATSBY_API_KEY}&format=json`);
+        if (!apiKey || !tracksUrl || !albumsUrl) {
+          throw new Error('Urls or apikeys are missing. Do you have the right .env configuration?');
+        }
+        const tracks = await axios.get(`${tracksUrl}${apiKey}&format=json`);
+        const albums = await axios.get(`${albumsUrl}${apiKey}&format=json`);
         this.setState({
           tracks: tracks.data,
           albums: albums.data,
           loading: false,
         });
       } catch (err) {
-        console.log(err);
+        console.error('error fetching music stats! --->', err);
+        window.location.assign('/');
       }
     })();
   }
