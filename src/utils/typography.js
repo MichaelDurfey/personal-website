@@ -20,6 +20,11 @@ const typography = new Typography({
       styles: ['400'],
     },
   ],
+  overrideThemeStyles: () => ({
+    a: {
+      color: '#0803ffe6 !important ',
+    },
+  }),
 });
 
 // Hot reload typography in development.
