@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
 import Img from 'gatsby-image';
-import linkedin from '../../static/icons/linkedin.png';
+import linkedin from '../../static/icons/linkedin.png'; // TODO: make this work
 import { media } from '../utils/media';
 
 const Content = styled.div`
