@@ -84,7 +84,7 @@ const Layout = ({ children }) => (
           <GlobalStyle />
           {children}
           <Footer>
-            &copy; 2019 by Michael Durfey. All rights reserved. <br />
+            &copy; 2020 by Michael Durfey. All rights reserved. <br />
             <a href="https://github.com/MichaelDurfey/personal-website">GitHub Repository</a> <br />
             <span>Last build: {data.site.buildTime}</span>
           </Footer>
