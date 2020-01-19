@@ -13,7 +13,6 @@ import './musicStyles.css';
 const Hero = styled.div`
   grid-column: 2;
   padding: 3rem 2rem 6rem 2rem;
-  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   color: ${props => props.theme.colors.grey.dark};
 
   p {
@@ -43,36 +42,11 @@ const getTracks = tracks => {
     const lastDate = dataSet[0].date['#text'];
     const offset = new Date().getTimezoneOffset();
     const a = moment(Date.parse(lastDate)).subtract(offset, 'minutes');
-    const timeString = a.format('ddd, MMM Do YYYY, h:mm a');
+    const time = a.format('h:mma');
+    const dayMonthYear = a.format('ddd, MMM Do YYYY');
 
     return (
       <>
-        <h1
-          className="nowListeningText"
-          style={{
-            color: 'black',
-            fontSize: `21px`,
-            fontletiant: `small-caps`,
-            fontFamily: `Raleway`,
-          }}
-        >
-          What i've been listening to
-          <i className="fa fa-music text-primary" />
-        </h1>
-        <h3 className="notListeningText" style={{ color: `black`, fontSize: `14px`, marginTop: `-9px` }}>
-          <span style={{ color: `black`, fontFamily: 'Oswald' }}>
-            Updated: <br />
-            <span
-              style={{
-                color: `black`,
-                fontFamily: 'Raleway',
-                fontSize: `14px`,
-              }}
-            >
-              {timeString}
-            </span>
-          </span>
-        </h3>
         <h1
           className="notListeningText"
           style={{
@@ -86,10 +60,27 @@ const getTracks = tracks => {
         >
           <span style={{ color: `black`, fontFamily: 'Oswald', fontSize: `14px` }}>Last Track:</span>
           <br />
-          {lastTrack} <br />
-          by <br />
+          {lastTrack}
+          <br />
+          <span style={{ color: `black`, fontFamily: 'Oswald', fontSize: `11px` }}>by</span>
+          <br />
           {lastArtist}
         </h1>
+        <h4 className="notListeningText" style={{ color: `black`, fontSize: `14px`, marginBottom: '5px' }}>
+          <span style={{ color: `black`, fontFamily: 'Oswald' }}>
+            <span
+              style={{
+                color: `black`,
+                fontFamily: 'Raleway',
+                fontSize: `14px`,
+              }}
+            >
+              {time}
+              <br />
+              {dayMonthYear}
+            </span>
+          </span>
+        </h4>
         <div className="lastAlbumImage text-center center-block" id="lastAlbumImage">
           <img className="lastAlbum" id="lastAlbum" src={lastImg} alt="Last Album" />
           <div
@@ -141,7 +132,7 @@ const getTracks = tracks => {
           <i className="text-primary" />
         </h1>
         <p className="trackText">{lastTrack}</p>
-        <p style={{ marginTop: `-5px`, marginBottom: `2px`, color: `black` }}>by</p>
+        <p style={{ marginBottom: `3px`, color: `black` }}>by</p>
         <h1 className="nowListeningText">{lastArtist}</h1>
         <div className="currentAlbumImage text-center" id="lastAlbumImage">
           <img className="currentAlbum" id="currentAlbum" src={lastImg} alt="Not available :(" />
@@ -186,13 +177,17 @@ const getImages = data => {
       components.push(imageComponent(artistName, albumName, rank, albumImage, url, key));
     }
   }
+
+  const SectionTwo = styled.div`
+    margin-top: 20px;
+  `;
   return (
-    <div>
-      <h1 className="topAlbumText" id="topAlbumText">
+    <SectionTwo>
+      <h2 className="topAlbumText" id="topAlbumText">
         Top albums this month
-      </h1>
+      </h2>
       <div className="images">{components}</div>
-    </div>
+    </SectionTwo>
   );
 };
 
