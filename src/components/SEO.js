@@ -73,7 +73,7 @@ const SEO = props => {
   }
   return (
     <Helmet>
-      <html lang={config.siteLanguage} />
+      <html lang={config.siteLanguage} prefix="og: http://ogp.me/ns#" />
       <title>{config.siteTitle}</title>
       <meta name="description" content={description} />
       <meta name="image" content={image} />
