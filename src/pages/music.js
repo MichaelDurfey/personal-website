@@ -2,13 +2,17 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { Layout, Wrapper } from 'components';
+import { Layout, Wrapper, Header } from 'components';
 import styled from 'styled-components';
 import moment from 'moment';
 import axios from 'axios';
+import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 import Loader from 'react-loader-spinner';
 import { media } from '../utils/media';
 import './musicStyles.css';
+
+import config from '../../config/SiteConfig';
 
 const Hero = styled.div`
   grid-column: 2;
@@ -242,6 +246,10 @@ export default class MusicPage extends React.Component {
     return (
       <Layout>
         <Wrapper>
+          <Helmet title={`Contact | ${config.siteTitle}`} />
+          <Header>
+            <Link to="/">{config.siteTitle}</Link>
+          </Header>
           <Hero className="topAlbumText">
             {loading ? <Loader type="Audio" color="#000" height={80} width={80} /> : this.loadStuff()}
           </Hero>
