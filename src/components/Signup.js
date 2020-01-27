@@ -13,7 +13,7 @@ const Content = styled.div`
   z-index: 9000;
   margin-top: 1rem;
   width: 50%;
-  min-width: 375px;
+  min-width: 340px;
   @media ${media.tablet} {
     padding: 3rem 3rem;
   }
