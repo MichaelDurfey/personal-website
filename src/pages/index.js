@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Layout, Article, Wrapper, Button, SectionTitle } from 'components';
+import { Layout, Article, Wrapper, Button, SectionTitle, Signup } from 'components';
 import Img from 'gatsby-image';
 import linkedinLogo from '../../static/icons/linkedin.png';
 import twitterLogo from '../../static/icons/Twitter_Logo_Blue.svg';
@@ -179,6 +179,7 @@ const IndexPage = ({
           />
         ))}
       </Content>
+      <Signup />
     </Wrapper>
   </Layout>
 );
