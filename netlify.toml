@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build"
-  publish = "public"
   base = "."
   functions = "./scripts"
+  command = "npm run build"
+  publish = "public"
 [build.environment]
   NODE_VERSION = "8.1.0"

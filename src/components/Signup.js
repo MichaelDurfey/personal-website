@@ -43,7 +43,7 @@ const Content = styled.div`
 const Signup = () => (
   <Content>
     <h3>Join my newsletter!</h3>
-    <form name="signup-form" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/newsletterSuccess">
+    <form name="signup-form" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/success">
       <p style={{ display: 'none' }} className="hidden">
         <label htmlFor="bot-field">
           Don't fill this out if you're human:
@@ -64,7 +64,7 @@ const Signup = () => (
       <p>
         <Button>Send</Button>
       </p>
-      <input type="hidden" name="form-name" value="contact-form" />
+      <input type="hidden" name="form-name" value="signup-form" />
     </form>
   </Content>
 );
