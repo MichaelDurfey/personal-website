@@ -19,4 +19,6 @@ Current features:
   - Schema.org JSONLD
   - OpenGraph Tags
   - Twitter Tags
+  - Google Search Console 
 - Favicons
+- Google Analytics
