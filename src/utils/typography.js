@@ -22,7 +22,7 @@ const typography = new Typography({
   ],
   overrideThemeStyles: () => ({
     a: {
-      color: '#0803ffe6 !important ',
+      color: '#8f8f8f !important',
     },
   }),
 });
