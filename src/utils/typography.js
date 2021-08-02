@@ -21,9 +21,9 @@ const typography = new Typography({
     },
   ],
   overrideThemeStyles: () => ({
-    a: {
-      color: '#8f8f8f !important',
-    },
+    // a: {
+    //   color: '#8f8f8f !important',
+    // },
   }),
 });
 

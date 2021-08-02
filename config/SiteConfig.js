@@ -7,7 +7,8 @@ module.exports = {
   siteLanguage: 'en', // Language Tag on <html> element
   siteBanner: '/social/banner.jpg', // Your image for og:image tag. You can find it in the /static folder
   favicon: 'src/favicon.png', // Your image for favicons. You can find it in the /src folder
-  siteDescription: 'A blog about life and full stack web development', // Your site description
+  siteDescription:
+    "Hi. I'm Michael Durfey, a Software Engineer passionate about improving the quality and speed of the web. This is my blog about life and full stack web development", // Your site description
   author: 'Michael Durfey', // Author for schemaORGJSONLD
   picture: '/social/SlackPhoto.png',
   siteLogo: '/social/logo.png', // Image for schemaORGJSONLD

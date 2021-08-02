@@ -97,10 +97,7 @@ const IndexPage = ({
     <Wrapper>
       <Hero>
         <Picture>{image(fixed)}</Picture>
-        <p>
-          I'm Michael Durfey, a Full Stack Software Engineer specializing in developing React applications and Node
-          servers.
-        </p>
+        <p>I'm Michael Durfey, a Software Engineer passionate about improving the quality and speed of the web.</p>
         <ButtonsDiv>
           <Link to="/contact">
             <Button big>
