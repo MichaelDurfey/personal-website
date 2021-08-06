@@ -88,6 +88,7 @@ export const postQuery = graphql`
         title
         date(formatString: "MM/DD/YYYY")
         category
+        image
       }
       timeToRead
     }

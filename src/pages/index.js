@@ -206,6 +206,7 @@ export const IndexQuery = graphql`
             title
             date(formatString: "MM/DD/YYYY")
             category
+            image
           }
           excerpt(pruneLength: 200)
           timeToRead
